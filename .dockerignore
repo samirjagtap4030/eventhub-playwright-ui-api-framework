@@ -1,0 +1,11 @@
+node_modules/
+frontend/
+backend/
+.next/
+playwright-report/
+test-results/
+reports/
+.git/
+.claude/
+.DS_Store
+*.log

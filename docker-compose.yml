@@ -1,0 +1,12 @@
+services:
+  tests:
+    build: .
+    ipc: host                          # Chromium needs shared memory access
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=1   # Chromium stalls on IPv6 lookups inside the container
+    volumes:
+      - ./playwright-report:/app/playwright-report   # HTML report → host machine
+      - ./test-results:/app/test-results             # Screenshots/videos on failure
